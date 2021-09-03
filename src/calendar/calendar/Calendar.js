@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import buildCalendar from "./build";
-import style from "./style";
+import buildCalendar from "../build";
 import "./calendar.css"
-import dayStyles, {beforeToday} from './style';
-import Header from './Header';
+import dayStyles, {beforeToday} from '../style';
+import Header from '../header/Header';
 
-function Calendar({value, onChange}) {
+function Calendar({value, onChange, toDo}) {
 
   const [calendar, setCalendar] = useState([])
-
 
   useEffect(() => {
 
@@ -23,16 +21,16 @@ function Calendar({value, onChange}) {
     <div className="calendar">
       <Header value={value} setValue={onChange}/>
       <div className="body">
-        <div className="day-names">
+        <div className="day-titles">
           {dayNames.map((day) => (<div className="weekday">{day}</div>))}
         </div>
         {calendar.map((week) => (
           <div className="week"> 
             {week.map((day) => (
               <div className="day" onClick={() => !beforeToday(day) && onChange(day)}>   
-                <div 
-                  className={dayStyles(day, value)}>
+                <div className={dayStyles(day, value)}>
                   {day.format("D").toString()}
+                  {toDo}
                 </div>
               </div>
             ))}

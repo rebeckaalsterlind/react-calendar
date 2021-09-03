@@ -1,8 +1,10 @@
 .calendar {
+  width: 50%;
   margin: auto;
+  border: 4px solid black;
 }
 
-.week, .day-names {
+.week, .day-titles {
   display: flex;
   flex-direction: row;
   align-items: center;

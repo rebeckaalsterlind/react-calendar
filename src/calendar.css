@@ -1,0 +1,19 @@
+.calendar {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.day {
+  display: flex;
+  flex-flow: row nowrap;
+  border: 1px solid black;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+  padding: 20px;
+}
+
+.selected {
+  background-color: red;
+  border-radius: 50%;
+}

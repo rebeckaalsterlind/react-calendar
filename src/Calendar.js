@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import moment from 'moment';
 import buildCalendar from "./build";
 import style from "./style";
 import "./calendar.css"
-import dayStyles from './style';
+import dayStyles, {beforeToday} from './style';
+import Header from './Header';
 
-function Calendar() {
+function Calendar({value, onChange}) {
 
   const [calendar, setCalendar] = useState([])
-  const [value, setValue] = useState(moment());
+
 
   useEffect(() => {
 
@@ -16,41 +16,20 @@ function Calendar() {
 
   }, [value])
 
-  function currMonthName() {
-    return value.format("MMMM")
-  }
-
-  function currYear() {
-    return value.format("YYYY")
-  }
-  
-  function prevMonth() {
-    return value.clone().subtract(1, "month")
-  }
-
-  function nextMonth() {
-    return value.clone().add(1, "month")
-  }
+  const dayNames = ["M", "T", "W", "T", "F", "L", "S"];
 
 
   return (
     <div className="calendar">
-      <div className="header">
-        <div className="previous" onClick={() =>  setValue(prevMonth())}>
-          {String.fromCharCode(171)}
-        </div>
-        <div className="current">
-          {currMonthName()} {currYear()}
-        </div>
-        <div className="next" onClick={() => setValue(nextMonth())}>
-          {String.fromCharCode(187)}
-        </div>
-      </div>
+      <Header value={value} setValue={onChange}/>
       <div className="body">
+        <div className="day-names">
+          {dayNames.map((day) => (<div className="weekday">{day}</div>))}
+        </div>
         {calendar.map((week) => (
           <div className="week"> 
             {week.map((day) => (
-              <div className="day" onClick={() => setValue(day)}>   
+              <div className="day" onClick={() => !beforeToday(day) && onChange(day)}>   
                 <div 
                   className={dayStyles(day, value)}>
                   {day.format("D").toString()}

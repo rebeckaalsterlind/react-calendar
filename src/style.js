@@ -2,7 +2,7 @@ function isSelected(day, value) {
   return value.isSame(day, "day");
 }
 
-function beforeToday(day){
+export function beforeToday(day){
   return day.isBefore(new Date(), "day");
 }
 

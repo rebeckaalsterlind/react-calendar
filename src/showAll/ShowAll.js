@@ -1,7 +1,7 @@
 import './showAll.css';
 
 function ShowAll({toDo}) {
-
+console.log('todo in show', toDo);
 
   return (
     <div className="ShowAll">

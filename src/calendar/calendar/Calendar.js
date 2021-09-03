@@ -22,12 +22,12 @@ function Calendar({value, onChange, toDo}) {
       <Header value={value} setValue={onChange}/>
       <div className="body">
         <div className="day-titles">
-          {dayNames.map((day) => (<div className="weekday">{day}</div>))}
+          {dayNames.map((day, index) => (<div className="weekday" key={index}>{day}</div>))}
         </div>
-        {calendar.map((week) => (
-          <div className="week"> 
-            {week.map((day) => (
-              <div className="day" onClick={() => !beforeToday(day) && onChange(day)}>   
+        {calendar.map((week, subIndex) => (
+          <div className="week" key={subIndex}> 
+            {week.map((day, dayIndex) => (
+              <div className="day" key={dayIndex} onClick={() => !beforeToday(day) && onChange(day)}>   
                 <div className={dayStyles(day, value)}>
                   {day.format("D").toString()}
                   {toDo}

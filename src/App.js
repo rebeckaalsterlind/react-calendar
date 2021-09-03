@@ -30,7 +30,7 @@ function App() {
       <Calendar value={value} onChange={setValue} toDo={toDo}/>
       <aside className="App aside">
         <Add value={value} toDo={toDo}/>
-        <ShowDay value={value}/>
+        <ShowDay value={value} toDo={toDo}/>
       </aside>
     </div>
   );

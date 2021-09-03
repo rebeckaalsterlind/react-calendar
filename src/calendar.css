@@ -1,19 +1,30 @@
 .calendar {
+  margin: auto;
+}
+
+.week {
   display: flex;
-  flex-flow: row nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
 .day {
-  display: flex;
-  flex-flow: row nowrap;
   border: 1px solid black;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid red;
-  padding: 20px;
+  width: 14%;
+  height: 60px;
+}
+
+.before {
+  background-color: grey;
+}
+
+.today {
+  background-color: red;
 }
 
 .selected {
-  background-color: red;
-  border-radius: 50%;
+  background-color: pink;
+
 }
+

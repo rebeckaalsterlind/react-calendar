@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import moment from 'moment';
 
 function ShowDay({value, toDo}) {
-  
-  const result = toDo.find((day) => day.date === "mon")
   const date = value.clone()._d.toString().slice(0, 10)
-console.log('wed', result);
+  const result = toDo.find((day) => day.date === date)
+
   return (
     <div className="ShowDay">
       <h2>{date}</h2>

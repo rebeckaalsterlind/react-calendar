@@ -5,45 +5,51 @@ import Calendar from './calendar/calendar/Calendar';
 import Add from './add/Add';
 import ShowAll from './showAll/ShowAll';
 import ShowDay from './showDay/ShowDay';
+import postList from './fetch/post';
+import getList from './fetch/get';
 
-const arr = []
-
-
-
-
-
-
-
+let newToDo = [];
 
 function App() {
 
   const [value, setValue] = useState(moment());
-  const [toDo, SetToDo] = useState(arr);
+  const [toDo, setToDo] = useState([{"date": "Thu sep 05", "task": ["clean", "read"]}]);
+  const [newTask, setNewTask] = useState(null);
+  
+  useEffect(() => {
+    getList((data) => setToDo(data)); 
+  }, [])
 
-  const pushToDo = (obj) => {
-    for(let i in obj)  arr.push(obj[i])
-    SetToDo(arr);
-  }
 
   useEffect(() => {
+
+    if(newTask !== null) {
   
-    fetch(`http://localhost:3010/users/json`)
-    .then(res => res.json())
-    .then(data =>  {
-      pushToDo(data);
+      const d = value.clone()._d.toString().slice(0, 10)
+      postList(newTask, d);
 
-    })
+      getList((data) => {
+        for (let i in data) {
+          newToDo.push(data[i])
+        }
+      });
 
-  });
+      setToDo(newToDo);
+      setNewTask(null);
+      newToDo = [];
+     
+    }
+
+  }, [newTask])
 
 
   return (
     <div className="App">
       <ShowAll toDo={toDo} />
-      <Calendar value={value} onChange={setValue} toDo={toDo}/>
+      <Calendar value={value} onChange={setValue} />
       <aside className="App aside">
-        <Add value={value} toDo={toDo}/>
-        <ShowDay value={value} toDo={toDo}/>
+        <Add add={item => setNewTask(item)} />
+        <ShowDay value={value} toDo={toDo} />
       </aside>
     </div>
   );

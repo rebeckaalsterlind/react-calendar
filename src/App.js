@@ -24,6 +24,7 @@ function App() {
   useEffect(() => {
 
     if(newTask !== null) {
+      
      
       const d = value.clone()._d.toString().slice(0, 10)
       postList(newTask, d);

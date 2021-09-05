@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 
 function ShowDay({value, toDo}) {
-
+  
   const date = value.clone()._d.toString().slice(0, 10)
   let result = toDo.find((items) => items.date === date);
   console.log('result', result);

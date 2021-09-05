@@ -2,6 +2,14 @@ import './showAll.css';
 
 function ShowAll({toDo}) {
 
+  
+  for (let i in toDo) {
+    new Date (Date.parse(toDo[i].date))
+  }
+
+  toDo.sort((a,b) => new Date(a.date) - new Date(b.date));
+
+ 
   return (
     <div id="allToDo" className="ShowAll">
       <h2>All To Do</h2>

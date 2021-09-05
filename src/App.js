@@ -24,20 +24,13 @@ function App() {
   useEffect(() => {
 
     if(newTask !== null) {
-  
+     
       const d = value.clone()._d.toString().slice(0, 10)
       postList(newTask, d);
 
-      getList((data) => {
-        for (let i in data) {
-          newToDo.push(data[i])
-        }
-      });
-
-      setToDo(newToDo);
+      getList((data) => setToDo(data));
       setNewTask(null);
-      newToDo = [];
-     
+   
     }
 
   }, [newTask])

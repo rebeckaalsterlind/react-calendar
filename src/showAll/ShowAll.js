@@ -17,8 +17,8 @@ function ShowAll({toDo}) {
           <div key={index}>
             <h3 key={index}>{item.date}</h3>
             { 
-              item.task.map((sub, subindex) =>
-              <p key={subindex}>{sub}</p>)
+              item.item.map((sub, subindex) =>
+              <p key={subindex}>{sub.task}</p>)
             }
           </div>
         )}

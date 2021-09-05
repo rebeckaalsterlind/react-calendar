@@ -1,6 +1,6 @@
 
 export default function postList(newTask, date) {
-console.log('newtast', newTask, date);
+
   fetch("http://localhost:3010/users/", {
     method: "post",
     headers: {

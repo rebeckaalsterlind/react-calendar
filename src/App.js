@@ -13,7 +13,7 @@ let newToDo = [];
 function App() {
 
   const [value, setValue] = useState(moment());
-  const [toDo, setToDo] = useState([{"date": "Thu sep 05", "task": ["clean", "read"]}]);
+  const [toDo, setToDo] = useState([]);
   const [newTask, setNewTask] = useState(null);
   
   useEffect(() => {
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <ShowAll toDo={toDo} />
-      <Calendar value={value} onChange={setValue} />
+      <Calendar value={value} onChange={setValue} toDo={toDo} />
       <aside className="App aside">
         <Add add={item => setNewTask(item)} />
         <ShowDay value={value} toDo={toDo} />

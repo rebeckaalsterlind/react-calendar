@@ -6,6 +6,7 @@ import Header from '../header/Header';
 
 function Calendar({value, onChange, toDo}) {
 
+  console.log('todo', toDo);
   const [calendar, setCalendar] = useState([])
 
   useEffect(() => {
@@ -14,7 +15,7 @@ function Calendar({value, onChange, toDo}) {
 
   }, [value])
 
-  const dayNames = ["M", "T", "W", "T", "F", "L", "S"];
+  const dayNames = ["M", "T", "W", "T", "F", "S", "S"];
 
 
   return (
@@ -30,7 +31,9 @@ function Calendar({value, onChange, toDo}) {
               <div className="day" key={dayIndex} onClick={() => !beforeToday(day) && onChange(day)}>   
                 <div className={dayStyles(day, value)}>
                   {day.format("D").toString()}
-                  {toDo}
+                   {toDo.map((item, index) => 
+                    (item.date === day._d.toString().slice(0, 10))
+                    && <li>{item.item.length} deadlines</li>)}
                 </div>
               </div>
             ))}
@@ -42,4 +45,4 @@ function Calendar({value, onChange, toDo}) {
   
 }
 
-export default Calendar;
+ export default Calendar;

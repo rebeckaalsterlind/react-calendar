@@ -15,31 +15,47 @@ function App() {
   const [value, setValue] = useState(moment());
   const [toDo, setToDo] = useState([]);
   const [newTask, setNewTask] = useState(null);
-  const [checked, setChecked] = useState();
+  const [checked, setChecked] = useState(null);
   
+  function postUpdate(state, route) {
+
+    if(state !== null) {
+      const d = value.clone()._d.toString().slice(0, 10)
+      
+      postList(state, d, route);
+    
+      getList((data) => {
+
+        let newArr = [];
+        for (let i in data) newArr.push(data[i])
+    
+        setToDo([...newArr])
+
+      });
+
+    }
+
+  } 
+
+  useEffect(() => {
+    console.log('toDo has changed', toDo);
+  }, [toDo])
+
   useEffect(() => {
     getList((data) => setToDo(data)); 
   }, [])
 
-
   useEffect(() => {
-
-    if(newTask !== null) {
-      
-      const d = value.clone()._d.toString().slice(0, 10)
-      postList(newTask, d, "add");
-
-      getList((data) => setToDo(data));
-      setNewTask(null);
    
-    }
+    postUpdate(newTask, "add");
+    setNewTask(null);
 
   }, [newTask])
 
   useEffect(() => {
- 
-    const d = value.clone()._d.toString().slice(0, 10)
-    postList(checked, d, "checked");
+  
+    postUpdate(checked, "checked");
+    setChecked(null)
 
   }, [checked])
 

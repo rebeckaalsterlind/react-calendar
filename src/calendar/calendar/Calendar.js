@@ -6,7 +6,6 @@ import Header from '../header/Header';
 
 function Calendar({value, onChange, toDo}) {
 
-  console.log('todo', toDo);
   const [calendar, setCalendar] = useState([])
 
   useEffect(() => {

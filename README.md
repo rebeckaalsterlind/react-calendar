@@ -1,6 +1,15 @@
 reflektion: 
 man kan lägga till att man kan ändra deadline för toDo genom en option select för de dagar som finns i kalenderna framåt. 
 
+lägga komponenter i link
+
+form borde kanske ha skickat fetch? och även ett state upp till app som i useEffect hämtar fetch igen. 
+istället för att skicka allt upp från form komponenterna till app och sen där kalla på en fetch komponent. 
+
+lägga till tid för deadline på dagen och sortera efter det också. 
+
+ge alarm när deadline närmar sig och kanske samla alla deadlines som inte gjorts trots att datum passerat i en annan lista.
+
 
 Kalender med Todo 
 I den här uppgiften så skall du ta fram en kalender med todo funktion. 

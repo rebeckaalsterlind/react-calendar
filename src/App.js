@@ -8,8 +8,12 @@ import ShowAll from './showAll/ShowAll';
 import ShowDay from './showDay/ShowDay';
 import postList from './fetch/post';
 import getList from './fetch/get';
-
-
+// fetch failing (get) everynow and then
+// ISSUE:    not updating komponents on change of props/state. unreliable with fetch working? 
+//next: print api
+//next: fixa databas?
+//next: deploya
+//pimpa med css och funktioner
 function App() {
 
   const [value, setValue] = useState(moment());
@@ -20,30 +24,15 @@ function App() {
   function postUpdate(state, route) {
 
     if(state !== null) {
-      const d = value.clone()._d.toString().slice(0, 10)
       
+      const d = value.clone()._d.toString().slice(0, 10)
       postList(state, d, route);
     
-      getList((data) => {
-
-        let newArr = [];
-        for (let i in data) newArr.push(data[i])
-    
-        setToDo([...newArr])
-
-      });
-
     }
+    
+    getList((data) => setToDo(data));
 
   } 
-
-  useEffect(() => {
-    console.log('toDo has changed', toDo);
-  }, [toDo])
-
-  useEffect(() => {
-    getList((data) => setToDo(data)); 
-  }, [])
 
   useEffect(() => {
    

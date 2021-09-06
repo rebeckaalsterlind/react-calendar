@@ -3,19 +3,22 @@ import './showAll.css';
 
 function ShowAll({toDo}) {
   
-  const [list, setList] = useState(toDo);
+  const [list, setList] = useState(...toDo);
 
-  useEffect(() => {
-    setList(toDo);
-  }, [toDo]);
+useEffect(() => {
+  console.log('in ue in show all', toDo);
+  for (let i in toDo) new Date (Date.parse(toDo[i].date))
+  toDo.sort((a,b) => new Date(a.date) - new Date(b.date));
 
-  for (let i in list) new Date (Date.parse(list[i].date))
-  list.sort((a,b) => new Date(a.date) - new Date(b.date));
+}, [list])
+
+
  
   return (
-    <div id="allToDo" className="ShowAll">
+    <div id="allToDo" className="ShowAll" >
       <h2>All To Do</h2>
-        {list.map((item,index) => 
+        {(toDo.length !== 0) ? 
+        toDo.map((item,index) => 
           <div key={index}>
             <h3 key={index}>{item.date}</h3>
             { 
@@ -23,7 +26,8 @@ function ShowAll({toDo}) {
               <p key={subindex}>{sub.task}</p>)
             }
           </div>
-        )}
+        ) :
+      <p>You have no deadlines at all!</p>}
     </div>
   );
 }   

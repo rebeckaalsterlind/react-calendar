@@ -33,7 +33,7 @@ function Calendar({value, onChange, toDo}) {
                   {day.format("D").toString()}
                    {toDo.map((item, index) => 
                     (item.date === day._d.toString().slice(0, 10))
-                    && <li>{item.item.length} deadlines</li>)}
+                    && <li key={index}>{item.item.length} deadlines</li>)}
                 </div>
               </div>
             ))}

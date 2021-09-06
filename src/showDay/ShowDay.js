@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 
+// send checked state up together with id. 
+// make new post
+// in post, find item through date and id and change checked state. remve/update state and send back
 
-function ShowDay({value, toDo}) {
+
+function ShowDay({value, toDo, check}) {
 
   const date = value.clone()._d.toString().slice(0, 10)
   let result = toDo.find((item) => item.date === date);
 
   const handleOnChange = (evt) => {
-
-    if (evt.target.checked) {
-      console.log('true');
-    }
-
+    if (evt.target.checked) check(evt.target.value)
   }
 
 
@@ -24,7 +24,7 @@ function ShowDay({value, toDo}) {
             (item.date === date) && item.item.map((item) => 
             ((item.checked === false) && 
               <li key={item.id}>{item.task}
-                <input key={item.id} type="checkbox" onChange={handleOnChange}/>
+                <input key={item.id} type="checkbox" value={item.id} onChange={handleOnChange}/>
               </li>)              
             )) 
           : <li>No deadlines today!</li>} 

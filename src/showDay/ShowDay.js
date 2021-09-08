@@ -1,13 +1,20 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 function ShowDay({value, toDo, check}) {
-
+  const [input, setInput] = useState(null);
 
   const date = value.clone()._d.toString().slice(0, 10)
 
-  // const handleOnChange = (evt) => {
-  //   if (evt.target.checked) check(evt.target.value)
-  // }
+
+  const onChange = (evt) => {
+    setInput({"task": evt.target.value, "id": evt.target.id})
+  }
+
+  useEffect(() => {
+    if (input !== null) {
+      check(input)
+    }
+  }, [input])
 
   return (
     <div className="ShowDay">
@@ -18,7 +25,7 @@ function ShowDay({value, toDo, check}) {
             toDo.map((item) => 
               (item.date === date) && item.item.map((item) => (
                 <li key={item.id}>{item.task}
-                  <input key={item.id} type="checkbox" value={item.id} onChange={(evt) => check(evt.target.value)}/>
+                  <input key={item.id} type="checkbox" id={item.id} value={item.task} onChange={(evt) => onChange(evt)}/>
                 </li>
               ))) 
           : <li>No deadlines today!</li>}

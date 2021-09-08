@@ -10,6 +10,9 @@ lägga till tid för deadline på dagen och sortera efter det också.
 
 ge alarm när deadline närmar sig och kanske samla alla deadlines som inte gjorts trots att datum passerat i en annan lista.
 
+lägg till möjlighet för titel och p i toDo, och printa titel i calendern men p vid sidan?
+
+spara alla deadlines som har gjorts/ done checkbox ellerer liknande?
 
 Kalender med Todo 
 I den här uppgiften så skall du ta fram en kalender med todo funktion. 

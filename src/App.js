@@ -8,42 +8,47 @@ import ShowAll from './showAll/ShowAll';
 import ShowDay from './showDay/ShowDay';
 import postList from './fetch/post';
 import getList from './fetch/get';
+import fetchAPI from './fetch/api';
+
+//*****************   ISSUES *****************
 // fetch failing (get) everynow and then
-// ISSUE:    not updating komponents on change of props/state. unreliable with fetch working? 
 //next: print api
 //next: fixa databas?
 //next: deploya
 //pimpa med css och funktioner
+
 function App() {
 
   const [value, setValue] = useState(moment());
   const [toDo, setToDo] = useState([]);
   const [newTask, setNewTask] = useState(null);
   const [checked, setChecked] = useState(null);
-  
-  function postUpdate(state, route) {
+
+  //fetchAPI();
+
+  function fetch(state, route) {
+    let d = value.clone()._d.toString().slice(0, 10)
 
     if(state !== null) {
       
-      const d = value.clone()._d.toString().slice(0, 10)
       postList(state, d, route);
     
     }
-    
+
     getList((data) => setToDo(data));
 
   } 
 
   useEffect(() => {
    
-    postUpdate(newTask, "add");
+    fetch(newTask, "add");
     setNewTask(null);
 
   }, [newTask])
 
   useEffect(() => {
   
-    postUpdate(checked, "checked");
+    fetch(checked, "checked");
     setChecked(null)
 
   }, [checked])

@@ -14,6 +14,8 @@ lägg till möjlighet för titel och p i toDo, och printa titel i calendern men 
 
 spara alla deadlines som har gjorts/ done checkbox ellerer liknande?
 
+borde uppdatera vissa komponenter endast när svar från posten spelar roll. tex erndera om calenderns datum som är samma som uppdaterades från en add i posten istället för att rendera om alla datar och alla info varje gång. 
+
 Kalender med Todo 
 I den här uppgiften så skall du ta fram en kalender med todo funktion. 
 Kalendern skall visa månadsvy och det skall gå att visa dagens månad samt se framtida månader.

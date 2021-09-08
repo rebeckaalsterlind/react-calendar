@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 
 function ShowDay({value, toDo, check}) {
   const [input, setInput] = useState(null);
+  // uppdatera inte efter checked utan stryk över? och uppdatera nästa gång?
 
   const date = value.clone()._d.toString().slice(0, 10)
-
 
   const onChange = (evt) => {
     setInput({"task": evt.target.value, "id": evt.target.id})

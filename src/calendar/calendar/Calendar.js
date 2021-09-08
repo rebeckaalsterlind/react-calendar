@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import buildCalendar from "../build";
-import "./calendar.css"
 import dayStyles, {beforeToday} from '../style';
 import Header from '../header/Header';
+import "./calendar.css";
 
-function Calendar({value, onChange, toDo}) {
+function Calendar({value, onChange, toDo, api}) {
+  const dayNames = ["M", "T", "W", "T", "F", "S", "S"];
 
   const [calendar, setCalendar] = useState([])
 
@@ -13,8 +15,6 @@ function Calendar({value, onChange, toDo}) {
     setCalendar(buildCalendar(value))
 
   }, [value])
-
-  const dayNames = ["M", "T", "W", "T", "F", "S", "S"];
 
 
   return (
@@ -31,7 +31,7 @@ function Calendar({value, onChange, toDo}) {
                 <div className={dayStyles(day, value)}>
                   {day.format("D").toString()}
                    {toDo.map((item, index) => 
-                    (item.date === day._d.toString().slice(0, 10))
+                    (item.date === moment(day._d).format("YYYY-MM-DD"))
                     && <li key={index}>{(item.item.length > 0) && item.item.length}</li>)}
                 </div>
               </div>

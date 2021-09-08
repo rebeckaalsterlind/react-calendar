@@ -1,20 +1,3 @@
-reflektion: 
-man kan lägga till att man kan ändra deadline för toDo genom en option select för de dagar som finns i kalenderna framåt. 
-
-lägga komponenter i link
-
-form borde kanske ha skickat fetch? och även ett state upp till app som i useEffect hämtar fetch igen. 
-istället för att skicka allt upp från form komponenterna till app och sen där kalla på en fetch komponent. 
-
-lägga till tid för deadline på dagen och sortera efter det också. 
-
-ge alarm när deadline närmar sig och kanske samla alla deadlines som inte gjorts trots att datum passerat i en annan lista.
-
-lägg till möjlighet för titel och p i toDo, och printa titel i calendern men p vid sidan?
-
-spara alla deadlines som har gjorts/ done checkbox ellerer liknande?
-
-borde uppdatera vissa komponenter endast när svar från posten spelar roll. tex erndera om calenderns datum som är samma som uppdaterades från en add i posten istället för att rendera om alla datar och alla info varje gång. 
 
 Kalender med Todo 
 I den här uppgiften så skall du ta fram en kalender med todo funktion. 
@@ -39,9 +22,6 @@ VG
 För att nå VG på uppgiften så skall även;
 
 Kalendern hämta svenska helgdagar från ett API och visa dessa dagar på kalendern.
-https://svenskahelgdagar.info
-Client ID:	rebeckaals7638
-Client secret: 33981b-dbb534-f28d38-5c465c-aceb15
 En reflekterande rapport bifogas (max 2 A4) som beskriver hur du arbetat med uppgiften och vilka tekniker och paket du valt att använda och varför.
 
 Inlämning

@@ -16,6 +16,12 @@ function Calendar({value, onChange, toDo, api}) {
 
   }, [value])
 
+let bankHoliday = [];
+for (let i in api) {
+
+  if(api[i]["röd dag"] === "Ja") bankHoliday.push({red: api[i]["datum"]})
+}
+
 
   return (
     <div className="calendar">
@@ -30,6 +36,7 @@ function Calendar({value, onChange, toDo, api}) {
               <div className="day" key={dayIndex} onClick={() => !beforeToday(day) && onChange(day)}>   
                 <div className={dayStyles(day, value)}>
                   {day.format("D").toString()}
+                  {bankHoliday.map((item) => (item.red == moment(day._d).format("YYYY-MM-DD").toString()) && <p>Bank holiday!</p>)}
                    {toDo.map((item, index) => 
                     (item.date === moment(day._d).format("YYYY-MM-DD"))
                     && <li key={index}>{(item.item.length > 0) && item.item.length}</li>)}

@@ -1,0 +1,57 @@
+.body {
+  height: 85%;
+}
+
+.week {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 20%;
+}
+
+
+.day {
+  border: 1px solid black;
+  width: 15%;
+  margin: 1px;
+}
+
+.day:hover {
+  border: 2px solid black;
+}
+
+.day > div {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+
+}
+
+.day > div > p {
+  margin: 0;
+}
+
+.length {
+  list-style-type: none;
+  font-size: .7em;
+  word-wrap: break-word;
+}
+
+.before {
+  background-color: rgb(227, 227, 227);
+}
+
+
+.today {
+  border: 2px solid red;
+  font-weight: 700;
+}
+
+.selected {
+  background-color: rgb(251, 220, 225);
+
+}
+
+.red {
+  color: red;
+}

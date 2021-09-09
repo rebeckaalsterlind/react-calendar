@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import './add.css';
 
 
 function Add({add}) {

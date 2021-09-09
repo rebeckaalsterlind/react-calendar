@@ -3,6 +3,7 @@ import './header.css';
 
 export default function Header({value, setValue}) {
 
+  const dayNames = ["M", "T", "W", "T", "F", "S", "S"];
 
   function currMonthName() {
     return value.format("MMMM")
@@ -27,15 +28,20 @@ export default function Header({value, setValue}) {
 
   return (
     <header className="header">
-      <div className="previous" onClick={() =>  !thisMonth() && setValue(prevMonth())}>
-        {!thisMonth() ? String.fromCharCode(171) : null }
-      </div>
-      <div className="current">
-        {currMonthName()} {currYear()}
-      </div>
-      <div className="next" onClick={() => setValue(nextMonth())}>
-        {String.fromCharCode(187)}
-      </div>
+      <section className="top">
+        <div className="previous" onClick={() =>  !thisMonth() && setValue(prevMonth())}>
+            {!thisMonth() ? String.fromCharCode(171) : null }
+          </div>
+          <div className="current">
+            {currMonthName()} {currYear()}
+          </div>
+          <div className="next" onClick={() => setValue(nextMonth())}>
+            {String.fromCharCode(187)}
+          </div>
+      </section>
+      <section className="day-titles">
+        {dayNames.map((day, index) => (<div className="weekday" key={index}>{day}</div>))}
+      </section>
     </header>
   )
 

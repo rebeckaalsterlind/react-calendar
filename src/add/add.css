@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+}
+.Add {
+  height: 30%;
+}
+
+.Add input {
+  margin: 10%;
+}
+
+.Add button {
+  margin: 10%;
+  margin-top: 0;
+}

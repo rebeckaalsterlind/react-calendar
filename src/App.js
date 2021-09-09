@@ -11,11 +11,9 @@ import getList, {fetchAPI, postList} from './fetch';
 
 //*****************   ISSUES *****************
 // fetch failing (get) everynow and then
-// sort in query in server instead! 
-//next: print api
-//next: print names days?
+//next: print names days? on showday
 //next: deploya
-//pimpa med css och funktioner
+//get font and choose colors
 // check memo for the ifs in useeffect?
 
 function App() {
@@ -24,14 +22,14 @@ function App() {
   const [toDo, setToDo] = useState([]);
   const [newTask, setNewTask] = useState(null);
   const [checked, setChecked] = useState(null);
+  const [api, setApi] = useState([]);
   const [apiDate, setApiDate] = useState(
     {"MM": value.clone().format("MM"), 
     "YYYY": value.clone().format("YYYY")
   })
-  const [api, setApi] = useState([]);
-  
-  let month;
 
+  //get dates for fetching api
+  let month;
   useEffect(() => {
     month = value.clone().format("MM");
 
@@ -42,20 +40,22 @@ function App() {
 
   }, [value])
 
+  //fetch API
   useEffect(() => {
     fetchAPI((data) => setApi(data), apiDate);
   }, [apiDate]) 
 
-
-  function fetch(state, route) {
+  //fetch toDo funktion 
+  function fetch(state, endpoint) {
 
     let date = moment(value.clone()._d).format("YYYY-MM-DD");
 
-    if(state !== null) postList(state, date, route);
+    if(state !== null) postList(state, date, endpoint);
     getList((data) => setToDo(data));
 
   } 
 
+  //fetch when added
   useEffect(() => {
    
     fetch(newTask, "add");
@@ -63,6 +63,7 @@ function App() {
 
   }, [newTask])
 
+  //fetch when checked
   useEffect(() => {
   
     fetch(checked, "checked");
@@ -75,7 +76,7 @@ function App() {
     <div className="App">
       <ShowAll toDo={toDo} />
       <Calendar value={value} onChange={setValue} toDo={toDo} api={api}/>
-      <aside className="App aside">
+      <aside className="App right-aside">
         <Add add={item => setNewTask(item)} />
         <ShowDay value={value} toDo={toDo} check={done => setChecked(done)} />
       </aside>

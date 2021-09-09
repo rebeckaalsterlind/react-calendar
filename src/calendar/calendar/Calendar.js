@@ -1,44 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import moment from 'moment';
-import buildCalendar from "../build";
-import dayStyles, {beforeToday, isRed} from '../style';
+import React from 'react';
+
 import Header from '../header/Header';
+import Body from '../body/Body';
 import "./calendar.css";
 
 
 function Calendar({value, onChange, toDo, api}) {
-  const dayNames = ["M", "T", "W", "T", "F", "S", "S"];
-  const [calendar, setCalendar] = useState([])
-
-
-  useEffect(() => {
-    setCalendar(buildCalendar(value))
-  }, [value])
-
 
   return (
-    <div className="calendar">
+    <main className="calendar">
       <Header value={value} setValue={onChange}/>
-      <div className="body">
-        <div className="day-titles">
-          {dayNames.map((day, index) => (<div className="weekday" key={index}>{day}</div>))}
-        </div>
-        {calendar.map((week, subIndex) => (
-          <div className="week" key={subIndex}> 
-            {week.map((day, dayIndex) => (
-              <div className="day" key={dayIndex} onClick={() => !beforeToday(day) && onChange(day)}>   
-                <div className={dayStyles(day, value)}>
-                  {isRed(day, api)}
-                  {toDo.map((item, index) => 
-                    (item.date === moment(day._d).format("YYYY-MM-DD"))
-                    && <li key={index}>{(item.item.length > 0) && item.item.length}</li>)}
-                </div>
-              </div>
-            ))}
-          </div>
-        ))}
-      </div>
-    </div>
+      <Body value={value} onChange={onChange} toDo={toDo} api={api}/>
+    </main>
   );
   
 }

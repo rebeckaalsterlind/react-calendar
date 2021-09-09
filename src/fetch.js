@@ -1,4 +1,4 @@
-
+//API
 export function fetchAPI(cb, apiDate) {
 
   fetch(`http://sholiday.faboul.se/dagar/v2.1/${apiDate.YYYY}/${apiDate.MM}`)
@@ -8,9 +8,10 @@ export function fetchAPI(cb, apiDate) {
 
 }
 
-export function postList(item, date, destination) {
+//POST
+export function postList(item, date, endpoint) {
 
-  fetch(`http://localhost:3010/toDo/${destination}`, {
+  fetch(`http://localhost:3010/toDo/${endpoint}`, {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -20,18 +21,12 @@ export function postList(item, date, destination) {
 
 }
 
-
+//GET
 export default function getList(cb) {
 
   fetch(`http://localhost:3010/toDo/`)
     .then(res => res.json())
-    .then(data => {
-      //sort after date
-      for (let i in data) new Date (Date.parse(data[i].date))
-      data.sort((a,b) => new Date(a.date) - new Date(b.date));
-
-      cb(data) 
-    }
+    .then(data => cb(data) 
   )
 
 }

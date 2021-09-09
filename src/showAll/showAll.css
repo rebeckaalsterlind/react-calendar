@@ -1,3 +1,29 @@
 .ShowAll {
   width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.ShowAll h5 {
+  margin: 0;
+  margin-top: .3em;
+  border-bottom: 1px solid black;
+}
+
+.ShowAll ul {
+  padding: 0;
+  margin: .3em;
+}
+
+.ShowAll li {
+  text-align: left;
+
+}
+
+.ShowAll div {
+  margin: 0;
+  padding: 0;
 }

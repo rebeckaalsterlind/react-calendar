@@ -1,0 +1,22 @@
+.ShowDay {
+  height: 70%;
+}
+
+.ShowDay h2 {
+  border-bottom: 1px solid black;
+  margin: 15%;
+}
+
+.ShowDay ul {
+  padding: 0;
+}
+
+.ShowDay li {
+  text-align: left;
+  margin-left: 27%;
+}
+
+#no-deadlines {
+  text-align: center;
+  padding: 0;
+}

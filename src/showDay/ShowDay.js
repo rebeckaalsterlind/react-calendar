@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import moment from 'moment';
+import './showDay.css';
 
 function ShowDay({value, toDo, check}) {
   const [input, setInput] = useState(null);
@@ -7,6 +8,8 @@ function ShowDay({value, toDo, check}) {
 
   //const date = value.clone()._d.toString().slice(0, 10)
   const date = moment(value.clone()._d).format("YYYY-MM-DD")
+  const title = new Date(date);
+
   const onChange = (evt) => {
     setInput({"task": evt.target.value, "id": evt.target.id})
   }
@@ -16,10 +19,10 @@ function ShowDay({value, toDo, check}) {
       check(input)
     }
   }, [input])
-
+  
   return (
     <div className="ShowDay">
-      <h2>{date}</h2>
+      <h2>{title.toString().slice(0,10)}</h2>
       {(toDo.length !== 0) &&
         <ul>
           {(toDo.find((item) => item.date === date) !== undefined) ? 
@@ -29,7 +32,7 @@ function ShowDay({value, toDo, check}) {
                   <input key={item.id} type="checkbox" id={item.id} value={item.task} onChange={(evt) => onChange(evt)}/>
                 </li>
               ))) 
-          : <li>No deadlines today!</li>}
+          : <li id="no-deadlines">No deadlines today!</li>}
         </ul>
       } 
     </div>

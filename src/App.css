@@ -1,21 +1,17 @@
 .App {
   text-align: center;
-  border: 2px solid green;
   width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: row;
 }
 
-.App aside {
-  border: 2px solid red;
+.App > .right-aside {
   display: flex;
   flex-flow: column nowrap;
   width: 25%;
 }
 
-.App aside div {
-  border: 2px solid green;
-  height: 50%;
+ul {
+  list-style-type: none;
 }
-

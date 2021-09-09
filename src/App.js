@@ -13,8 +13,10 @@ import getList, {fetchAPI, postList} from './fetch';
 // fetch failing (get) everynow and then
 // sort in query in server instead! 
 //next: print api
+//next: print names days?
 //next: deploya
 //pimpa med css och funktioner
+// check memo for the ifs in useeffect?
 
 function App() {
 

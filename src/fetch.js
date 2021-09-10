@@ -24,7 +24,7 @@ export function postList(item, date, endpoint) {
 //GET
 export default function getList(cb) {
 
-  fetch(`https://to-do-calendar-react.herokuapp.com/toDo/`)
+  fetch(`https://to-do-calendar-react.herokuapp.com/toDo`)
     .then(res => res.json())
     .then(data => cb(data) 
   )

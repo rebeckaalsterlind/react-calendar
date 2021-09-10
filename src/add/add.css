@@ -2,15 +2,15 @@
   box-sizing: border-box;
 }
 .Add {
-  height: 30%;
-  min-height: 140px;
+  min-height: 150px;
   border: 1px solid black;
-  margin: 30px 10%;
+  margin: 0 10%;
   margin-bottom: 5%;
 }
 
 .Add input {
   position: relative;
+  margin: 0 10% 5% 10%;
   max-width: 80%;
   border: 1px solid black;
   border-radius: .3em;
@@ -18,7 +18,7 @@
 
 #save{
   position: relative;
-  margin: 5% 10% 5% 10%;
+  margin: 0 10% 10% 10%;
   padding: .2em;
   font-family: 'Urbanist', sans-serif;
   font-weight: 700;

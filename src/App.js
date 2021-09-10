@@ -74,8 +74,10 @@ function App() {
   return (
     <div className="App">
       <ShowAll toDo={toDo} />
-      <Calendar value={value} onChange={setValue} toDo={toDo} api={api}/>
-      <aside className="App right-aside">
+      <main>
+        <Calendar value={value} onChange={setValue} toDo={toDo} api={api}/>
+      </main>
+      <aside className="right-aside">
         <Add add={item => setNewTask(item)} />
         <ShowDay value={value} toDo={toDo} check={done => setChecked(done)} />
       </aside>

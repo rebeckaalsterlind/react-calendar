@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   height: 15%;
-  min-height: 50px;
+  min-height: 70px;
   border-bottom: 2px solid black;
 }
 
@@ -22,6 +22,11 @@
   justify-content: space-around;
   margin-bottom: 3px;
   font-weight: 700;
+}
+
+.day-titles div {
+  position: relative;
+  bottom: 2px
 }
 
 .previous:hover, .next:hover {

@@ -1,7 +1,7 @@
 //API
 export function fetchAPI(cb, apiDate) {
 
-  fetch(`http://sholiday.faboul.se/dagar/v2.1/${apiDate.YYYY}/${apiDate.MM}`)
+  fetch(`https://sholiday.faboul.se/dagar/v2.1/${apiDate.YYYY}/${apiDate.MM}`)
     .then(res => res.json())
     .then(data => cb(data.dagar) 
  )

@@ -23,8 +23,8 @@ function Body({value, onChange, toDo, api}) {
                 <div className={dayStyles(day, value)}>
                   {isRed(day, api)}
                   {toDo.map((item, index) => 
-                    (item.date === moment(day._d).format("YYYY-MM-DD"))
-                    && <li className="length" key={index}> Deadlines: <br /> {(item.item.length > 0) && item.item.length}</li>)}
+                    (item.date === moment(day._d).format("YYYY-MM-DD") && item.item.length > 0)
+                    && <li className="length" key={index}> Deadlines: <br />{item.item.length}</li>)}
                 </div>
               </div>
             ))}

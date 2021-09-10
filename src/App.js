@@ -13,7 +13,6 @@ import getList, {fetchAPI, postList} from './fetch';
 // fetch failing (get) everynow and then
 //next: print names days? on showday
 //next: deploya
-//get font and choose colors
 // check memo for the ifs in useeffect?
 
 function App() {

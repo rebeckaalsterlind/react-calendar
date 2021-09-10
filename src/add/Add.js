@@ -8,7 +8,10 @@ function Add({add}) {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    add(item);
+    add(
+      item.charAt(0).toUpperCase() + 
+      item.slice(1)
+    );
     setItem("");
   }
 
@@ -16,8 +19,8 @@ function Add({add}) {
     <div className="Add">
       <h2>Add To Do:</h2>
       <form onSubmit={handleSubmit} >
-        <input type="text" value={item} onChange={(evt) => setItem(evt.target.value)}/>
-        <button type="submit" >Save</button>
+        <input type="text" required value={item} onChange={(evt) => setItem(evt.target.value)}/>
+        <button id="save" type="submit" >Save</button>
       </form>
     </div>
   );

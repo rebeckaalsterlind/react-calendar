@@ -12,12 +12,17 @@ function ShowDay({value, toDo, check}) {
 
   const onChange = (evt) => {
     setInput({"task": evt.target.value, "id": evt.target.id})
+    document.getElementById(evt.target.id).classList.add("strike");
   }
 
   useEffect(() => {
+    
     if (input !== null) {
-      check(input)
+      setTimeout(function() {
+        check(input)
+      }, 1000);  
     }
+    
   }, [input])
   
   return (
@@ -28,7 +33,7 @@ function ShowDay({value, toDo, check}) {
           {(toDo.find((item) => item.date === date) !== undefined) ? 
             toDo.map((item) => 
               (item.date === date) && item.item.map((item) => (
-                <li key={item.id}>{item.task}
+                <li key={item.id} id={item.id}>{item.task}
                   <input key={item.id} type="checkbox" id={item.id} value={item.task} onChange={(evt) => onChange(evt)}/>
                 </li>
               ))) 

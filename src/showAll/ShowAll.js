@@ -5,7 +5,7 @@ function ShowAll({toDo}) {
   
   return (
     <aside className="ShowAll" >
-      <h2>To Do:</h2>
+      <h2>TO DO:</h2>
         {(toDo.length !== 0) ? 
         toDo.map((group,index) => 
         <div key={index}>

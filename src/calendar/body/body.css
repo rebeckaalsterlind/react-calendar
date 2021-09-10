@@ -38,18 +38,17 @@
 }
 
 .before {
-  background-color: rgb(227, 227, 227);
+  background-color: rgb(241, 241, 241);
 }
 
 
 .today {
-  border: 2px solid red;
+  background-color: rgb(251, 220, 225);
   font-weight: 700;
 }
 
 .selected {
-  background-color: rgb(251, 220, 225);
-
+  border: 2px solid red;
 }
 
 .red {

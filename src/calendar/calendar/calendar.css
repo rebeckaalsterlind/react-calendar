@@ -1,8 +1,8 @@
 .calendar {
   width: 50%;
-  margin-top: 19.92px;
   border: 2px solid black;
   box-shadow: 2px 2px 10px;
   height: 85%;
+  margin-top: 30px;
 }
 

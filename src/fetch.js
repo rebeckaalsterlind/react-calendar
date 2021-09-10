@@ -11,7 +11,7 @@ export function fetchAPI(cb, apiDate) {
 //POST
 export function postList(item, date, endpoint) {
 
-  fetch(`http://localhost:3010/toDo/${endpoint}`, {
+  fetch(`https://to-do-calendar-react.herokuapp.com/toDo/${endpoint}`, {
     method: "post",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +24,7 @@ export function postList(item, date, endpoint) {
 //GET
 export default function getList(cb) {
 
-  fetch(`http://localhost:3010/toDo/`)
+  fetch(`https://to-do-calendar-react.herokuapp.com/toDo/`)
     .then(res => res.json())
     .then(data => cb(data) 
   )

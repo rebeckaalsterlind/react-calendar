@@ -78,7 +78,7 @@ function App() {
         <Calendar value={value} onChange={setValue} toDo={toDo} api={api}/>
       </main>
       <aside className="right-aside">
-        <Add add={item => setNewTask(item)} />
+        <Add value={value} add={item => setNewTask(item)} />
         <ShowDay value={value} toDo={toDo} check={done => setChecked(done)} />
       </aside>
     </div>

@@ -14,16 +14,43 @@ body {
 }
 
 .App > .right-aside {
-  width: 25%;
+  width: 50%;
   margin-top: 30px;
 }
 
 .App > main {
-  width: 50%;
+  width: 100%;
   display: flex;
   justify-content: center;
+  order: 3;
 }
+
 
 ul {
   list-style-type: none;
+}
+
+
+
+
+@media only screen and (min-width: 768px) {
+
+  .App {
+    text-align: center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-flow: row nowrap;
+  }
+ 
+  .App > main {
+    width: 50%;
+    order: 2;
+  }
+
+  .App > .right-aside {
+    width: 25%;
+    order: 3;
+  }
+  
 }

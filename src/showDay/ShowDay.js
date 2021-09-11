@@ -4,11 +4,9 @@ import './showDay.css';
 
 function ShowDay({value, toDo, check}) {
   const [input, setInput] = useState(null);
-  // uppdatera inte efter checked utan stryk över? och uppdatera nästa gång?
-
-  //const date = value.clone()._d.toString().slice(0, 10)
   const date = moment(value.clone()._d).format("YYYY-MM-DD")
   const title = new Date(date);
+
 
   const onChange = (evt) => {
     setInput({"task": evt.target.value, "id": evt.target.id})

@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import moment from 'moment';
 import buildCalendar from "../build";
 import dayStyles, {beforeToday, isRed} from '../style';
+
 import './body.css'
 
 function Body({value, onChange, toDo, api}) {
 
   const [calendar, setCalendar] = useState([])
-
 
   useEffect(() => {
     setCalendar(buildCalendar(value))
@@ -24,7 +24,7 @@ function Body({value, onChange, toDo, api}) {
                   {isRed(day, api)}
                   {toDo.map((item, index) => 
                     (item.date === moment(day._d).format("YYYY-MM-DD") && item.item.length > 0)
-                    && <li className="length" key={index}> Deadlines: <br />{item.item.length}</li>)}
+                    && <li className="length" key={index}> Deadlines: {item.item.length}</li>)}
                 </div>
               </div>
             ))}

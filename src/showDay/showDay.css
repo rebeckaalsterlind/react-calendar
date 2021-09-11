@@ -5,6 +5,7 @@
 .ShowDay h2 {
   border-bottom: 1px solid black;
   margin: 15%;
+  margin-bottom: 15px;
 }
 
 .ShowDay ul {

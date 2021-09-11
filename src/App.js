@@ -79,7 +79,7 @@ function App() {
       </main>
       <aside className="right-aside">
         <Add value={value} add={item => setNewTask(item)} />
-        <ShowDay value={value} toDo={toDo} check={done => setChecked(done)} />
+        <ShowDay value={value} toDo={toDo} api={api} check={done => setChecked(done)} />
       </aside>
     </div>
   );

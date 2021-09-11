@@ -20,6 +20,7 @@
 .ShowAll ul {
   padding: 0;
   margin: .3em;
+  width: 150px;
 }
 
 .ShowAll li {

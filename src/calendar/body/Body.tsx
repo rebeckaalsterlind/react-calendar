@@ -3,7 +3,7 @@ import moment from 'moment';
 import buildCalendar from "../build";
 import dayStyles, {beforeToday, isRed} from '../style';
 import './body.css';
-
+import ErrorBoundary from '../../ErrorBoundary';
 interface Props {
   value: any,
   onChange: any,
@@ -32,7 +32,9 @@ function Body({value, onChange, toDo, api}:Props, state: State) {
             {week.map((day:any, dayIndex:number) => (
               <div className="day" key={dayIndex} onClick={() => !beforeToday(day) && onChange(day)}>   
                 <div className={dayStyles(day, value)}>
+                <ErrorBoundary>
                   {isRed(day, api)}
+                </ErrorBoundary>
                   {toDo.map((item:any, index:number) => 
                     (item.date === moment(day._d).format("YYYY-MM-DD") && item.item.length > 0)
                     && <li className="length" key={index}> Deadlines: {item.item.length}</li>)}

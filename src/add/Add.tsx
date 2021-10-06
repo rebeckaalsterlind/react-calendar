@@ -1,12 +1,20 @@
 import React, {useState} from 'react';
 import './add.css';
 
+interface Props {
+  add(item:any): void,
+  value: any
+}
 
-function Add({add, value}) {
-  const date = value._d.toString().slice(0, 10);
+interface State {
+  item: string
+}
+
+function Add({add, value}: Props, state:State) {
+  const date: string = value._d.toString().slice(0, 10);
   const [item, setItem] = useState("");
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = (evt: React.FormEvent<HTMLFormElement>) => {
     evt.preventDefault();
     add(
       item.charAt(0).toUpperCase() + 

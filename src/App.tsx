@@ -8,27 +8,31 @@ import ShowAll from './showAll/ShowAll';
 import ShowDay from './showDay/ShowDay';
 import getList, {fetchAPI, postList} from './fetch';
 
+interface State {
+  value: any,
+  toDo: Object[],
+  newTask: null | string,
+  checked: null | Object,
+  api: Object,
+  apiDate: Object,
+}
 
-//*****************   ISSUES *****************
-// fetch failing (get) everynow and then
-//next: print names days? on showday
-//next: deploya
-// check memo for the ifs in useeffect?
-
-function App() {
+function App(state: State) {
 
   const [value, setValue] = useState(moment());
   const [toDo, setToDo] = useState([]);
   const [newTask, setNewTask] = useState(null);
   const [checked, setChecked] = useState(null);
-  const [api, setApi] = useState([]);
+  const [api, setApi] = useState();
   const [apiDate, setApiDate] = useState(
     {"MM": value.clone().format("MM"), 
     "YYYY": value.clone().format("YYYY")
-  })
+  });
+  
 
   //get dates for fetching api
-  let month;
+  let month: string;
+
   useEffect(() => {
     month = value.clone().format("MM");
 
@@ -41,16 +45,16 @@ function App() {
 
   //fetch API
   useEffect(() => {
-    fetchAPI((data) => setApi(data), apiDate);
+    fetchAPI((data:any):any => setApi(data), apiDate);
   }, [apiDate]) 
 
   //fetch toDo funktion 
-  function fetch(state, endpoint) {
+  function fetch(state:any, endpoint:string) {  
 
-    let date = moment(value.clone()._d).format("YYYY-MM-DD");
+    const date:string = value.format("YYYY-MM-DD");
 
     if(state !== null) postList(state, date, endpoint);
-    getList((data) => setToDo(data));
+    getList((data:any) => setToDo(data));
 
   } 
 
@@ -79,7 +83,7 @@ function App() {
       </main>
       <aside className="right-aside">
         <Add value={value} add={item => setNewTask(item)} />
-        <ShowDay value={value} toDo={toDo} api={api} check={done => setChecked(done)} />
+        <ShowDay value={value} toDo={toDo} check={done => setChecked(done)} />
       </aside>
     </div>
   );

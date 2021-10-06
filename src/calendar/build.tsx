@@ -1,5 +1,5 @@
-  
-export default function buildCalendar(value) {
+import React from 'react';
+export default function buildCalendar(value:any):any {
   const startDay = value.clone().startOf('month').startOf('isoWeek');
   const endDay =  value.clone().endOf('month').endOf('isoWeek');
 

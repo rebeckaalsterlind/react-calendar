@@ -1,27 +1,33 @@
+import { AnyARecord } from 'dns';
 import React from 'react';
 import './header.css';
 
-export default function Header({value, setValue}) {
+interface Props {
+  value: any,
+  setValue(para:string): any
+}
 
-  const dayNames = ["M", "T", "W", "T", "F", "S", "S"];
+export default function Header({value, setValue}:Props) {
 
-  function currMonthName() {
+  const dayNames:Object[] = ["M", "T", "W", "T", "F", "S", "S"];
+
+  function currMonthName():string {
     return value.format("MMMM")
   }
 
-  function currYear() {
+  function currYear():string {
     return value.format("YYYY")
   }
   
-  function prevMonth() {
+  function prevMonth():string {
     return value.clone().subtract(1, "month")
   }
 
-  function nextMonth() {
+  function nextMonth():string {
     return value.clone().add(1, "month")
   }
 
-  function thisMonth() {
+  function thisMonth():boolean {
     return value.isSame(new Date(), "month")
   }
 

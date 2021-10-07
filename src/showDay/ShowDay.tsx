@@ -20,8 +20,7 @@ function ShowDay({value, toDo, check}:Props, state: State) {
 
   const onChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setInput({"task": evt.target.value, "id": evt.target.id})
-    const done: HTMLElement | null = document.getElementById("evt.target.id"); 
-    if(done !== null) done.classList.add("strike");
+    document.getElementById(evt.target.id)!.classList.add("strike");
   }
 
   useEffect(() => {

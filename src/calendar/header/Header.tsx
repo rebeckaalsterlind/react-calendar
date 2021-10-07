@@ -1,5 +1,3 @@
-import { AnyARecord } from 'dns';
-import React from 'react';
 import './header.css';
 
 interface Props {
